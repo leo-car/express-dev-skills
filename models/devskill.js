@@ -8,6 +8,7 @@ const devskills = [
 module.exports =  {
     getAll,
     getOne,
+    create
 };
 
 function getAll() {
@@ -19,3 +20,10 @@ function getOne(id) {
 
     return devskills.find(devskill => devskill.id === id);
 }
+
+function create(devskill) {
+    devskill.id = Date.now() % 1000000;
+    devskill.done = false;
+    devskills.push(devskill);
+}
+    
