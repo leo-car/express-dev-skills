@@ -2,7 +2,8 @@ module.exports = {
     index,
     show,
     new: newDevskill,
-    create
+    create,
+    delete: deleteDevskill
 };
 
 const Devskill = require("../models/devskill");
@@ -30,3 +31,7 @@ function create(req, res) {
     res.redirect("/devskills")
 }
 
+function deleteDevskill(req, res) {
+    Devskill.deleteOne(req.params.id);
+    res.redirect("/devskills");
+}

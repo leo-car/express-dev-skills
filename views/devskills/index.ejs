@@ -6,7 +6,17 @@
       <a href="/devskills/<%= t.id %>"><%= t.devskill %></a>
       
       <%= t.done ? "" : "" %>
-    </li>  
+      
+      <form 
+        action="/devskills/<%= t.id %>?_method=DELETE"
+        class="delete-form"
+        method="POST"
+        
+      >
+      <button type="submit">X</button>
+
+    </form>
+    </li>
   <% }) %>
 </ul>
 <a href="/devskills/new">Add Devskills</a>

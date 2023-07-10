@@ -8,7 +8,8 @@ const devskills = [
 module.exports =  {
     getAll,
     getOne,
-    create
+    create,
+    deleteOne
 };
 
 function getAll() {
@@ -21,9 +22,15 @@ function getOne(id) {
     return devskills.find(devskill => devskill.id === id);
 }
 
+
 function create(devskill) {
     devskill.id = Date.now() % 1000000;
     devskill.done = false;
     devskills.push(devskill);
 }
     
+function deleteOne(id) {
+    id = parseInt(id);
+    const idx = devskills.findIndex(devskill => devskill.id === id)
+    devskills.splice(idx, 1)
+}
